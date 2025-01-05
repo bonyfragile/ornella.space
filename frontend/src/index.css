@@ -1,13 +1,35 @@
+body {
+    background-color: #FFFCFA;
+    font-family: "Krub", serif;
+    color: #F21C0A;
+    font-size: 100%;
+    line-height: 1.3;
+  }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  .title {
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.8em;
+    margin-bottom: 0.4em;
   }
-  a:hover {
-    color: #747bff;
+
+  .subtitle {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.7em;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .nav-links li {
+    margin: 0 10px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.8em;
   }
-}
+
+  p {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.8em;
+  }
+
+  

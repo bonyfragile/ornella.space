@@ -1,0 +1,41 @@
+
+.container {
+    margin-right: 30px;
+    padding: 5px;
+    flex-grow: 1;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 1920px;
+    width: 100%;
+}
+
+.grid-item {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2; 
+    width: 75%;   
+}
+
+@media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(6, 1fr); /* 6 cells per row for wide screens */
+    }
+}
