@@ -17,7 +17,12 @@
   padding: 0;
 }
 
-
+.nav-links li {
+  margin: 0 10px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8em;
+}
 
 .inactive-link {
   text-decoration: none;

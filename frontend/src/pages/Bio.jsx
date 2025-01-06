@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import client from '../sanityClient'
 import { urlFor} from '../imageUrl'
+import BlockContent from '@sanity/block-content-to-react'
 import './Bio.css'
 
 export default function Bio() {
@@ -19,7 +20,7 @@ export default function Bio() {
   return (
     <div className="bio-container">
       <div className="bio-content">
-        <p className="bio-description">{bio.description}</p>     
+        <BlockContent blocks={bio.description} projectId="f588b6e1" dataset="production" />     
         {imageUrl && (<img src={imageUrl} alt="Ornella Portrait" className="bio-photo" />)}
       </div>
     </div>

@@ -7,7 +7,7 @@ export default {
         {name: 'genre', title: 'Genre', type: 'string'},               
         {name: 'year', title: 'Year', type: 'number'},
         {name: 'externalLink', title: 'External Link', type: 'url'},
-        {name: 'description', title: 'Description', type: 'text'},
+        {name: 'description', title: 'Description', type: 'array', of: [{type: 'block'}]},
         {name: 'coverImage', title: 'Cover Image', type: 'image'},        
     ],
 };

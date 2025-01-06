@@ -1,4 +1,4 @@
-.dates-container {
+.lovelist-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-.dates-content {
+.lovelist-content {
     max-width: 50%; 
     width: 100%; 
     align-items: center;

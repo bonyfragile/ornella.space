@@ -1,3 +1,4 @@
+
 body {
     background-color: #FFFCFA;
     font-family: "Krub", serif;
@@ -10,20 +11,13 @@ body {
     font-weight: 600;
     font-style: normal;
     font-size: 0.8em;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.3em;
   }
 
   .subtitle {
     font-weight: 400;
     font-style: normal;
     font-size: 0.7em;
-  }
-
-  .nav-links li {
-    margin: 0 10px;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 0.8em;
   }
 
   p {
