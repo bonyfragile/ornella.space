@@ -4,6 +4,7 @@ export default {
     type: 'document',
     fields: [
         {name: 'title', title: 'Title', type: 'string'},
+        {name: 'slug', title: 'Slug', type: 'slug', options: {source: 'title',}, validation: (Rule) => Rule.required(),},
         {name: 'genre', title: 'Genre', type: 'string'},
         {name: 'duration', title: 'Duration', type: 'string'},
         {name: 'country', title: 'Country', type: 'string'},

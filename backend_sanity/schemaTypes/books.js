@@ -2,8 +2,9 @@ export default {
     name: 'book',
     title: 'Book',
     type: 'document',
-    fields: [
+    fields: [        
         {name: 'title', title: 'Title', type: 'string'},
+        {name: 'slug', title: 'Slug', type: 'slug', options: {source: 'title',}, validation: (Rule) => Rule.required(),},
         {name: 'genre', title: 'Genre', type: 'string'},
         {name: 'publisher', title: 'Publisher', type: 'string'},       
         {name: 'year', title: 'Year', type: 'number'},
