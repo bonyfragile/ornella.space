@@ -8,11 +8,10 @@ import './Homepage.css'
 export default function Homepage() {
   const [projects, setProjects] = useState([])
   const navigate = useNavigate();
-  {/*const [selectedProject, setSelectedProject] = useState(null)*/}
 
   useEffect (() => {
     client.fetch(
-      '*[_type in ["film", "book", "postpunkpoetry"]]|order(_createdAt desc){_id, _type, title, slug, genre, year, coverImage{asset->{url}}, images[]{asset->{url}}, description, externalLink, publisher, duration, country}'
+      '*[_type in ["film", "book", "postpunkpoetry"]]|order(_createdAt desc){_id, _type, title, slug, shortsubtitle, extendedsubtitle, coverImage{asset->{url}}, images[]{asset->{url}}, description, externalLink}'
     )  
     .then(setProjects)
     .catch(console.error)
@@ -20,13 +19,6 @@ export default function Homepage() {
 
   console.log(projects)
 
- {/*const openModal = (project) => {
-    setSelectedProject(project)
-  }
-
-  const closeModal = () => {
-    setSelectedProject(null)
-  }*/}
 
   const handleProjectClick = (slug) => {
     navigate(`/${slug.current}`)
@@ -41,8 +33,8 @@ export default function Homepage() {
         {projects.map((project) => (
           <div key={project._id} className="grid-item" onClick={() => handleProjectClick(project.slug)}>
             <div className="grid-item-text">            
-              <div className="title">{project.title}</div>
-              <div className="subtitle">{project.genre}, {project.year}</div>
+              <h3 className="title">{project.title}</h3>
+              <h4 className="subtitle">{project.shortsubtitle}</h4>
             </div>
             <img src={project.coverImage?.asset?.url} alt={project.title} className="grid-item-image" />
           </div>

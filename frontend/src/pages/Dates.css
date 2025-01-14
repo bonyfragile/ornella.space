@@ -2,13 +2,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     text-align: center;
+    margin: 30px;
 }
 
 .dates-content {
-    max-width: 50%; 
+    max-width: 80%; 
     width: 100%; 
     align-items: center;
     max-height: 100%;
+}
+
+@media (max-width: 480px) {  
+    .bio-content {
+        max-width: 100%;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 1023px) {
+    .bio-content {
+      max-width: 60%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bio-content {
+      max-width: 40%;
+    }    
 }

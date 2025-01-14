@@ -35,14 +35,10 @@ export default function Modal({ project, onClose }) {
                 </div>
 
                 <div className="modal-info">
-                    <div className="title">{project.title}</div>
-                    <div className="subtitle">{project.genre},
-                    {project.duration && <span>{project.duration},</span>}
-                    {project.country && <span>{project.country},</span>}
-                    {project.publisher && <span>{project.publisher},</span>}         
-                    <span>{project.year}</span></div>
+                    <h3 className="title">{project.title}</h3>
+                    <h4 className="subtitle">{project.extendedsubtitle}</h4>
                     <a href={project.externalLink} target="_blank" rel="noopener noreferrer">Follow link</a>
-                    <BlockContent blocks={project.description} projectId="f588b6e1" dataset="production" className="description" />
+                    <div className="description"><BlockContent blocks={project.description} projectId="f588b6e1" dataset="production" /></div>
                     <button className="close-button" onClick={onClose}>Back</button>
                 </div>
             </div>      
