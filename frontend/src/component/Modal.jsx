@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import BlockContent from '@sanity/block-content-to-react'
 import ReactDom from 'react-dom'
 import './Modal.css'
 
 export default function Modal({ project, onClose }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const overlayRef = useRef()
 
     const nextImage = () => 
         setCurrentImageIndex((prev) => 
@@ -16,8 +17,13 @@ export default function Modal({ project, onClose }) {
         prev === 0 ? project.images?.length - 1 : prev - 1
     )
 
+    const handleOnClick = (e) => {
+        if (e.target !== overlayRef.current) return
+        window.history.back()
+    }
+
   return ReactDom.createPortal(    
-    <div className="modal-overlay">
+    <div className="modal-overlay" onClick={handleOnClick} ref={overlayRef}>
         <div className="modal-content">
             {project.images && <div className="modal-gallery">
                 {project.images.length > 1 && 
