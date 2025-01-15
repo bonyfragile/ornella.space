@@ -65,11 +65,6 @@
     text-shadow: 0 0 10px #FFFCFA;
   }
   
-  .modal-info > .text {
-    height: 90%;
-    overflow-y: hidden;
-  }
-
   .modal-info a {
     margin-top: 20px;
     font-weight: 400;
@@ -79,7 +74,6 @@
   }
   
   .close-button {  
-    height: 10%;  
     margin-top: 20px;
     background: none;
     color: #F21C0A;
@@ -97,8 +91,8 @@
       
     .description {
         overflow-y: scroll;
-        height: 80%;
-        scrollbar-width:thin;
+        max-height: 600px;
+        scrollbar-width: thin;
         scrollbar-color: currentColor transparent;
     }
 
