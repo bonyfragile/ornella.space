@@ -6,37 +6,30 @@
     height: 100vh;
     background-color: #fffcfa7a;
     backdrop-filter: blur(4px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 1000;
-    overflow: auto;
+    overflow: hidden;
   }
   
-  .modal-content {  
+  .modal-content {
+    --pad: 40px; /*see media width for desktop 80px */
     display: flex; 
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 768px;
-    height: auto;    
-    margin: 30px;
-    }
-
-  .modal-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    width: 100%;
+    flex-wrap:wrap;
+    padding: var(--pad);
+    width: calc(100% - var(--pad) * 2); /* substract padding */
+    height: calc(100% - var(--pad) * 2); /* substract padding */  
+    margin: auto; /* centers itself horizontally */
   }
-  
+
+  /* modal gallery */
   .modal-gallery {
     padding: 10px;
+    width: calc(40% - 10px * 2); /* substract padding */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    object-fit: contain;
   }
   
   .modal-gallery img {
@@ -54,21 +47,27 @@
   }
   .nav-button.left {
     left: 10px;
+    /* transform: translateX(-20px); */
   }
   .nav-button.right {
     right: 10px;
+    /* transform: translateX(20px); */
   }
   
+  /* model info */ 
   .modal-info {
-    overflow-y: auto;
     padding: 10px;
+    width: calc(60% - 10px * 2);  /* substract padding */
+    height: calc(100% - 10px * 2);
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     text-shadow: 0 0 10px #FFFCFA;
   }
-
-  .description {
-    max-height: 80%;
-    overflow-y: scroll;
+  
+  .modal-info > .text {
+    height: 90%;
+    overflow-y: hidden;
   }
 
   .modal-info a {
@@ -79,7 +78,8 @@
     color: #F21C0A;
   }
   
-  .close-button {    
+  .close-button {  
+    height: 10%;  
     margin-top: 20px;
     background: none;
     color: #F21C0A;
@@ -88,19 +88,56 @@
     text-decoration: underline;
   }
 
+  @media (min-width: 768px) {
+       
+    .modal-content {
+      --pad: 100px;
+      max-width: 50%;
+    }
+      
+    .description {
+        overflow-y: scroll;
+        height: 80%;
+        scrollbar-width:thin;
+        scrollbar-color: currentColor transparent;
+    }
 
-  @media (max-width: 480px) {  
-   
-    .modal-grid {
-      grid-template-columns: 1fr; /* Switch to single column layout */
-      grid-template-rows: auto auto; /* Two rows */
-      gap: 12px; /* Reduce spacing */ 
-      width: 75%;
-    }    
-  }
+    .description > div {
+      padding-right: 20px;
+    }
 
-  @media (min-width: 481px) and (max-width: 768px) {
-    .modal-grid {
+    .close-button {  
+      text-align: left;
+    }
+  } 
+
+  @media (max-width: 768px) {
+
+    .modal-overlay {
+      overflow: auto;
+    }
+
+    .modal-content {
+      overflow-y: scroll;
+      padding: 20px;
+      height: auto; 
+      text-align: center;   
+    }
+
+    .modal-gallery {
+      width: 100%;
+      margin: 10% 15%;
+    }
+
+    .nav-button.left {
+      transform: translateX(-40px);
+    }
+
+    .nav-button.right {
+      transform: translateX(40px);
+    }
+
+    .modal-info {
       width: 100%;
     }
 
