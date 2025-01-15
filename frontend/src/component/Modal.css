@@ -84,7 +84,7 @@
   @media (min-width: 768px) {
        
     .modal-content {
-      --pad: 100px;
+      --mar: 100px;
       max-width: 50%;
     }
       
