@@ -4,6 +4,14 @@
     flex-grow: 1;
 }
 
+.title {
+    margin-bottom: 0.1em;
+}
+
+.subtitle {
+    margin-top: 0;
+}
+
 .grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

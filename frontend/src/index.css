@@ -2,6 +2,8 @@
   font-family: "Krub", serif;
   font-size: 100%;
   line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -13,14 +15,12 @@ body {
     font-weight: 600;
     font-style: normal;
     font-size: 0.85em;
-    margin-bottom: 0.1em;
   }
 
   .subtitle {
     font-weight: 400;
     font-style: normal;
-    font-size: 0.85em;
-    margin-top: 0;
+    font-size: 0.8em;
   }
 
   p, button {
