@@ -28,11 +28,12 @@
     height: 100vh;
     background-color: #fffcfa50;
     backdrop-filter: blur(6px);
-    z-index: 1000;
+    z-index: 10;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* align-items: center; */
     animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -47,10 +48,27 @@
   }
   
   .modal-content {
+    position: relative;
     display: flex; 
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .x-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* padding: 10px; */
+    margin: 10px;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    text-align: inherit;
+    font: inherit;
+    appearance: none; 
+    z-index: 100;
+    cursor: pointer;
   }
 
   /* modal gallery */
@@ -91,10 +109,10 @@
     padding: var(--pad);
     width: calc(60% - var(--pad) * 2);  /* substract padding */
     height: calc(100% - var(--pad) * 2);
+    text-shadow: 0 0 10px #FFFCFA;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-shadow: 0 0 10px #FFFCFA;
+    justify-content:center;
   }
   
   .modal-info a {
@@ -117,14 +135,14 @@
        
     .modal-content {
       width: 768px;
-      /* height: auto; */
-      aspect-ratio: 16 / 9;
+      height: 432px;
+      /* aspect-ratio: 16 / 9; bugging */
       margin: 0 auto;
     }
       
     .description {
         overflow-y: scroll;
-        max-height: 600px;
+        max-height: 200px;
         scrollbar-width: thin;
         scrollbar-color: currentColor transparent;
         padding-top: 10px;
@@ -170,6 +188,7 @@
     .modal-info {
       width: 100%;
       height: auto;
+      display: block;
       padding-bottom: 50px;
     }
 

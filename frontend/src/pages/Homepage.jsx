@@ -8,6 +8,7 @@ import './Homepage.css'
 export default function Homepage() {
   const [projects, setProjects] = useState([])
   const [isVisible, setIsVisible] = useState(false)
+  const [isRendering, setIsRendering] = useState(false)
   const [visibleProj, setVisibleProj] = useState(null)
   const navigate = useNavigate();
 
@@ -26,12 +27,16 @@ export default function Homepage() {
     navigate(`/${project.slug.current}`)
     setVisibleProj(project)
     setIsVisible(true)
+    setIsRendering(true)
   }
 
   const onClose = () => {
-    navigate(`/`)
     // window.history.back()
     setIsVisible(false)
+    setTimeout(()=>{
+      navigate(`/`)
+      setIsRendering(false)
+    }, 200)
   } 
   const imageUrl = projects.coverImage ? urlFor(projects.coverImage).url() : null;
 
@@ -50,7 +55,7 @@ export default function Homepage() {
         ))}
       </div>
       
-      <Modal project={visibleProj} onClose={onClose} isVisible={isVisible} />
+      {isVisible && isRendering && <Modal project={visibleProj} onClose={onClose} isVisible={isVisible} /> }
       {/* <ProjectModal projects={projects} isVisible={isVisible} /> */}
     </div>
     
