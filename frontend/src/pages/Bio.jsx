@@ -13,14 +13,14 @@ export default function Bio() {
     .catch(console.error)
   }, [])
 
-  if (!bio) return <p>Loading...</p>;
+  // if (!bio) return <p>Loading...</p>;
 
-  const imageUrl = bio.photo ? urlFor(bio.photo).width(600).url() : null;
+  const imageUrl = bio?.photo ? urlFor(bio.photo).width(600).url() : null;
 
   return (
     <div className="bio-container">
       <div className="bio-content">
-        <BlockContent blocks={bio.description} projectId="f588b6e1" dataset="production" />     
+        <BlockContent blocks={bio?.description} projectId="f588b6e1" dataset="production" />     
         {imageUrl && (<img src={imageUrl} alt="Ornella Portrait" className="bio-photo" />)}
       </div>
     </div>

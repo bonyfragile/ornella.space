@@ -7,6 +7,8 @@ import './Homepage.css'
 
 export default function Homepage() {
   const [projects, setProjects] = useState([])
+  const [isVisible, setIsVisible] = useState(false)
+  const [visibleProj, setVisibleProj] = useState(null)
   const navigate = useNavigate();
 
   useEffect (() => {
@@ -20,10 +22,17 @@ export default function Homepage() {
   console.log(projects)
 
 
-  const handleProjectClick = (slug) => {
-    navigate(`/${slug.current}`)
+  const handleProjectClick = (project) => {
+    navigate(`/${project.slug.current}`)
+    setVisibleProj(project)
+    setIsVisible(true)
   }
- 
+
+  const onClose = () => {
+    navigate(`/`)
+    // window.history.back()
+    setIsVisible(false)
+  } 
   const imageUrl = projects.coverImage ? urlFor(projects.coverImage).url() : null;
 
   return (
@@ -31,7 +40,7 @@ export default function Homepage() {
     <div className="container">
       <div className="grid">
         {projects.map((project) => (
-          <div key={project._id} className="grid-item" onClick={() => handleProjectClick(project.slug)}>
+          <div key={project._id} className="grid-item" onClick={() => handleProjectClick(project)}>
             <div className="grid-item-text">            
               <h3 className="title">{project.title}</h3>
               <h4 className="subtitle">{project.shortsubtitle}</h4>
@@ -41,17 +50,18 @@ export default function Homepage() {
         ))}
       </div>
       
-      <ProjectModal projects={projects} />
+      <Modal project={visibleProj} onClose={onClose} isVisible={isVisible} />
+      {/* <ProjectModal projects={projects} isVisible={isVisible} /> */}
     </div>
     
   )
 }
 
-const ProjectModal = ({ projects }) => {
-  const { slug } = useParams()
-  const project = projects.find((p) => p.slug?.current === slug)
+// const ProjectModal = ({ projects, isVisible }) => {
+//   const { slug } = useParams()
+//   const project = projects.find((p) => p.slug?.current === slug)
 
-  if (!project) return null
+//   if (!project) return null
 
-  return <Modal project={project} onClose={() => window.history.back()} />
-}
+//   return <Modal project={project} onClose={() => window.history.back()} isVisible={isVisible} />
+// }
