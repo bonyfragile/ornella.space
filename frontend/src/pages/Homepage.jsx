@@ -10,6 +10,7 @@ export default function Homepage() {
   const [isVisible, setIsVisible] = useState(false)
   const [isRendering, setIsRendering] = useState(false)
   const [visibleProj, setVisibleProj] = useState(null)
+  const [isReady, setIsReady] = useState(false)
   const navigate = useNavigate();
 
   useEffect (() => {
@@ -18,6 +19,12 @@ export default function Homepage() {
     )  
     .then(setProjects)
     .catch(console.error)
+    
+    setIsReady(true)
+
+    return () => {
+      setIsReady(false)
+    }
 }, [])
 
   console.log(projects)
@@ -42,7 +49,7 @@ export default function Homepage() {
 
   return (
     
-    <div className="container">
+    <div className={`container ${isReady ? 'mount' : 'unmount'}`}>
       <div className="grid">
         {projects.map((project) => (
           <div key={project._id} className="grid-item" onClick={() => handleProjectClick(project)}>

@@ -6,11 +6,17 @@ import './Bio.css'
 
 export default function Bio() {
   const [bio, setBio] = useState(null)
+  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
     client.fetch('*[_type == "bio"]{description, photo}')
     .then((data) => setBio(data[0]))
     .catch(console.error)
+    setIsReady(true)
+
+    return () => {
+      setIsReady(false)
+    }
   }, [])
 
   // if (!bio) return <p>Loading...</p>;
@@ -18,7 +24,7 @@ export default function Bio() {
   const imageUrl = bio?.photo ? urlFor(bio.photo).width(600).url() : null;
 
   return (
-    <div className="bio-container">
+    <div className={`bio-container ${isReady ? 'mount' : 'unmount'}`}>
       <div className="bio-content">
         <BlockContent blocks={bio?.description} projectId="f588b6e1" dataset="production" />     
         {imageUrl && (<img src={imageUrl} alt="Ornella Portrait" className="bio-photo" />)}
