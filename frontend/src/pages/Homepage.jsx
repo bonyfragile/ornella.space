@@ -36,11 +36,13 @@ export default function Homepage() {
     setVisibleProj(project)
     setIsVisible(true)
     setIsRendering(true)
+    document.body.style.overflowY = 'hidden'
   }
-
+  
   const onClose = () => {
     // window.history.back()
     setIsVisible(false)
+    document.body.style.overflowY = 'scroll'
     setTimeout(()=>{
       navigate(`/`)
       setIsRendering(false)
