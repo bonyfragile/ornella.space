@@ -33,7 +33,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -76,6 +75,7 @@
     --pad: 20px;
     padding: var(--pad);
     width: calc(40% - var(--pad) * 2); /* substract padding */
+    height: calc(100% - var(--pad) * 2); /* substract padding */
     position: relative;
     display: flex;
     align-items: center;
@@ -115,21 +115,34 @@
     justify-content:center;
   }
   
+  .modal-info .subtitle {
+    padding-bottom: 10px;
+    font-style: italic;
+  }
+
   .modal-info a {
     font-weight: 400;
     font-style: normal;
     font-size: 0.8em;
     color: #F21C0A;
   }
+
+  .modal-info .description {
+    margin-top:30px;
+  }
+
+  .modal-info .description > div > * {
+    padding-bottom: 10px;
+  }
   
-  .close-button {  
+  /* .close-button {  
     margin-top: 20px;
     background: none;
     color: #F21C0A;
     border: none;
     cursor: pointer;
     text-decoration: underline;
-  }
+  } */
 
   @media (min-width: 768px) {
        
@@ -142,10 +155,9 @@
       
     .description {
         overflow-y: scroll;
-        max-height: 200px;
+        max-height: calc (432px - 2 * 20px - 88px);
         scrollbar-width: thin;
         scrollbar-color: currentColor transparent;
-        padding-top: 10px;
     }
 
     .description > div {
@@ -174,6 +186,7 @@
 
     .modal-gallery {
       width: 100%;
+      height: auto;
       margin: 20px 40px;
     }
 
@@ -189,7 +202,7 @@
       width: 100%;
       height: auto;
       display: block;
-      padding-bottom: 50px;
+      padding-bottom: 100px;
     }
 
   }

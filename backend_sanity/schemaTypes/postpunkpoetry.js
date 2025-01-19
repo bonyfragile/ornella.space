@@ -26,7 +26,14 @@ export default {
             title: 'Subtitle for Project Card', 
             type: 'string',
             description: 'Poetry genre, year and/or other. This information will appear in the project card.'
-        },     
+        }, 
+        {
+            name: 'visibleLinkName', 
+            title: 'Visible Link Name', 
+            type: 'string',
+            initialValue: 'postpunkpoetry.kessel.media',
+            description: 'e.g. Call to action, "Link", or "example.com"'
+        },    
         {
             name: 'externalLink', 
             title: 'External Link', 

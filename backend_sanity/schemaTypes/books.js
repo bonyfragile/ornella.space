@@ -28,6 +28,13 @@ export default {
             description: 'Book genre, publisher, year and/or other. This information will appear in the project card.'
         },
         {
+            name: 'visibleLinkName', 
+            title: 'Visible Link Name', 
+            type: 'string',
+            initialValue: 'Link',
+            description: 'e.g. Call to action, "Link", or "example.com"'
+        },
+        {
             name: 'externalLink', 
             title: 'External Link', 
             type: 'url',

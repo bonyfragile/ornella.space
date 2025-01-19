@@ -15,11 +15,12 @@ export default function Homepage() {
 
   useEffect (() => {
     client.fetch(
-      '*[_type in ["film", "book", "postpunkpoetry"]]|order(_createdAt desc){_id, _type, title, slug, shortsubtitle, extendedsubtitle, coverImage{asset->{url}}, images[]{asset->{url}}, description, externalLink}'
+      '*[_type in ["film", "book", "postpunkpoetry"]]|order(_createdAt desc){_id, _type, title, slug, shortsubtitle, extendedsubtitle, coverImage{asset->{url}}, images[]{asset->{url}}, description, visibleLinkName, externalLink}'
     )  
     .then(setProjects)
     .catch(console.error)
     
+    // wip
     setIsReady(true)
 
     return () => {
@@ -43,7 +44,7 @@ export default function Homepage() {
     setTimeout(()=>{
       navigate(`/`)
       setIsRendering(false)
-    }, 200)
+    }, 250) // duration should match the animation duration in css
   } 
   const imageUrl = projects.coverImage ? urlFor(projects.coverImage).url() : null;
 
@@ -62,7 +63,7 @@ export default function Homepage() {
         ))}
       </div>
       
-      {isVisible && isRendering && <Modal project={visibleProj} onClose={onClose} isVisible={isVisible} /> }
+      {isRendering && <Modal project={visibleProj} onClose={onClose} isVisible={isVisible} /> }
       {/* <ProjectModal projects={projects} isVisible={isVisible} /> */}
     </div>
     
