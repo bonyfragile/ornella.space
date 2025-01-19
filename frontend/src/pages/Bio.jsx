@@ -12,22 +12,19 @@ export default function Bio() {
     client.fetch('*[_type == "bio"]{description, photo}')
     .then((data) => setBio(data[0]))
     .catch(console.error)
-    setIsReady(true)
-
-    return () => {
-      setIsReady(false)
-    }
+    requestAnimationFrame(() => setIsReady(true))
   }, [])
 
   // if (!bio) return <p>Loading...</p>;
 
   const imageUrl = bio?.photo ? urlFor(bio.photo).width(600).url() : null;
-
+  console.log(bio?.photo, imageUrl);
+  
   return (
-    <div className={`bio-container ${isReady ? 'mount' : 'unmount'}`}>
+    <div className={`bio container ${isReady ? 'mount' : 'unmount'}`}>
       <div className="bio-content">
-        <BlockContent blocks={bio?.description} projectId="f588b6e1" dataset="production" />     
         {imageUrl && (<img src={imageUrl} alt="Ornella Portrait" className="bio-photo" />)}
+        <BlockContent blocks={bio?.description} projectId="f588b6e1" dataset="production" />     
       </div>
     </div>
   )

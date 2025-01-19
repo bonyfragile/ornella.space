@@ -20,16 +20,8 @@ export default function Homepage() {
     .then(setProjects)
     .catch(console.error)
     
-    // wip
-    setIsReady(true)
-
-    return () => {
-      setIsReady(false)
-    }
+    requestAnimationFrame(() => setIsReady(true))
 }, [])
-
-  console.log(projects)
-
 
   const handleProjectClick = (project) => {
     navigate(`/${project.slug.current}`)
@@ -42,9 +34,9 @@ export default function Homepage() {
   const onClose = () => {
     // window.history.back()
     setIsVisible(false)
+    navigate(`/`)
     document.body.style.overflowY = 'scroll'
     setTimeout(()=>{
-      navigate(`/`)
       setIsRendering(false)
     }, 250) // duration should match the animation duration in css
   } 
@@ -52,7 +44,7 @@ export default function Homepage() {
 
   return (
     
-    <div className={`container ${isReady ? 'mount' : 'unmount'}`}>
+    <div className={`home container ${isReady ? 'mount' : 'unmount'}`}>
       <div className="grid">
         {projects.map((project) => (
           <div key={project._id} className="grid-item" onClick={() => handleProjectClick(project)}>

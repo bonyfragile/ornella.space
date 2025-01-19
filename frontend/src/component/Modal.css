@@ -171,6 +171,13 @@
     }
   } 
 
+  @media (min-width: 1920px) {
+    .modal-content {
+      width: 960px;
+      height: 540px;
+    }
+  }
+
   @media (max-width: 768px) {
 
     .modal-overlay {
@@ -204,11 +211,6 @@
       width: 100%;
       height: auto;
       display: block;
-      padding-bottom: 100px;
+      padding-bottom: 140px;
     }
-
   }
-
-
-
- 

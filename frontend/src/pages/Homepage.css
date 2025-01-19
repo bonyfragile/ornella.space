@@ -1,17 +1,8 @@
 
-.container {
+.home.container {
     margin-right: 30px;
     flex-grow: 1;
-    transition: opacity 0.6s;
-  }
-
-  .container.mount {
-    opacity: 1;
-  }
-  
-  .container.unmount {
-    opacity: 0;
-  }
+}
 
 .title {
     margin-bottom: 0.1em;
