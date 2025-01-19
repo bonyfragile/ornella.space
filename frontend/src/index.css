@@ -29,5 +29,19 @@ body {
     font-size: 0.8em;
   }
 
+  /* page animation */ 
+
+  .container {
+    transition: opacity 0.6s;
+  }
+
+  .mount {
+    opacity: 1;
+  }
+  
+  .unmount {
+    opacity: 0;
+  }
+
   
   

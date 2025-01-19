@@ -44,7 +44,7 @@ export default {
             name: 'description', 
             title: 'Description', 
             type: 'array', of: [{type: 'block'}],
-            description: 'A quote from the poem.'
+            description: 'A quote from the poem. Use shift + enter for a verse line break. Just Enter for a new paragraph.'
         },
         {
             name: 'coverImage', 
