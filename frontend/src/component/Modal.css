@@ -147,8 +147,10 @@
   @media (min-width: 768px) {
        
     .modal-content {
-      width: 768px;
-      height: 432px;
+      width: 880px;
+      height: 495px;
+      /* width: 768px;
+      height: 432px; */
       /* aspect-ratio: 16 / 9; bugging */
       margin: 0 auto;
     }
