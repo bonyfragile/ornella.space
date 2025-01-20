@@ -26,8 +26,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #fffcfa6e;
-    backdrop-filter: blur(5px) brightness(1.1);
+    background-image: radial-gradient(#fffcfa85 , #fffcfa00);
+    backdrop-filter: blur(7px) brightness(1.1);
     z-index: 10;
     overflow: hidden;
     display: flex;
@@ -109,7 +109,7 @@
     padding: var(--pad);
     width: calc(60% - var(--pad) * 2);  /* substract padding */
     height: calc(100% - var(--pad) * 2);
-    text-shadow: 0 0 10px #ffffff;
+    text-shadow: 0 0 15px #ffffff;
     display: flex;
     flex-direction: column;
     justify-content:center;
