@@ -2,19 +2,11 @@
 .home.container {
     margin-right: 30px;
     flex-grow: 1;
-/* .container {
+/* .container { merge -> not sure why we dont need those anymore so just leaving it commented for now
     flex-grow: 1;
     height: calc(100% - 40px * 2);
     width: calc(100% - 40px * 2); */
 }
-
-/* .container.mount {
-    opacity: 1;
-}
-  
-.container.unmount {
-    opacity: 0;
-} */
 
 .filters {
     display: flex;

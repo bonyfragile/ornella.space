@@ -5,7 +5,6 @@ import client from '../sanityClient'
 import { urlFor} from '../imageUrl'
 import './Homepage.css'
 
-
 export default function Homepage() {
   const [projects, setProjects] = useState([])
   const [selectedFilters, setSelectedFilters] = useState([])
@@ -43,7 +42,6 @@ export default function Homepage() {
     return selectedFilters.includes(project._type)
   }*/}
 
-
   const handleProjectClick = (project) => {
     navigate(`/${project.slug.current}`)
     if (selectedFilters.length === 0 || selectedFilters.includes(project._type)) {
@@ -67,16 +65,6 @@ export default function Homepage() {
 
   return (
     
-    // <div className={`home container ${isReady ? 'mount' : 'unmount'}`}>
-    //   <div className="grid">
-    //     {projects.map((project) => (
-    //       <div key={project._id} className="grid-item" onClick={() => handleProjectClick(project)}>
-    //         <div className="grid-item-text">            
-    //           <h3 className="title">{project.title}</h3>
-    //           <h4 className="subtitle">{project.shortsubtitle}</h4>
-    //         </div>
-    //         <img src={project.coverImage?.asset?.url} alt={project.title} className="grid-item-image" />
-    //       </div>
     <div className={`home container ${isReady ? 'mount' : 'unmount'}`}>
       {/* Filter Toggle */}
       <div className="filters">
@@ -127,18 +115,7 @@ export default function Homepage() {
       </div>
       
       {isRendering && <Modal project={visibleProj} onClose={onClose} isVisible={isVisible} /> }
-      {/* {setVisibleProj && isVisible && isRendering && <Modal project={visibleProj} onClose={onClose} isVisible={isVisible} /> } */}
-      {/* <ProjectModal projects={projects} isVisible={isVisible} /> */}
     </div>
     
   )
 }
-
-// const ProjectModal = ({ projects, isVisible }) => {
-//   const { slug } = useParams()
-//   const project = projects.find((p) => p.slug?.current === slug)
-
-//   if (!project) return null
-
-//   return <Modal project={project} onClose={() => window.history.back()} isVisible={isVisible} />
-// }
