@@ -1,10 +1,9 @@
 .navbar {
   width: 30px;
   position: fixed;
-  top: 10px;
+  top: 15px;
   bottom: 0;
   right: 0;
-  padding: 10px 0;
   writing-mode: vertical-rl;
   text-align: center;
 }
@@ -26,11 +25,11 @@
 
 .inactive-link {
   text-decoration: none;
-  color: #C5B4A6;
+  color: #000000;
 }
 
 .active-link {
-  color:#c5a6a6;
+  color:#000000;
   text-decoration: none;
   font-weight: 600;
 }

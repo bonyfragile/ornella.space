@@ -18,12 +18,18 @@ body {
   }
 
   .subtitle {
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
     font-size: 0.8em;
   }
 
-  p, button {
+  p {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 0.8em;
+  }
+
+  button {
     font-weight: 400;
     font-style: normal;
     font-size: 0.8em;
