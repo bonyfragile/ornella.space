@@ -49,6 +49,7 @@
     gap: 20px;
     max-width: 1920px;
     width: 100%;
+    margin-top: 40px;
 }
 
 .grid-item {
@@ -150,17 +151,16 @@
 
 @media (max-width: 768px) {
 
+    .grid-item-image {
+        width: 85%;
+        height: 85%;
+    }
+    
     .filters {
         width: 100%;
         right: auto;
         justify-content: center;
     }
-
-    .grid-item-image {
-        width: 85%;
-        height: 85%;
-    }
-
     /* override iOS style sheet*/
     .filter-button {
         color: black;

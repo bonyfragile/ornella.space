@@ -9,6 +9,7 @@
 body {
     background-color: #FFFCFA;
     color: #F21C0A;
+    scrollbar-width: thin;
   }
 
   .title {
