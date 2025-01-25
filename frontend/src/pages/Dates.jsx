@@ -19,7 +19,6 @@ export default function Dates() {
   // if (!dates) return <p>Loading...</p>;
   
   return (
-
     <>
     <Helmet>
       <title>ORNELLA DATES</title>
