@@ -86,7 +86,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    box-shadow: 0 0 20px 2px #FFFCFA;    
+    /* box-shadow: 0 0 20px 2px #FFFCFA;     */
   }
 
   .nav-button {
@@ -128,7 +128,7 @@
   }
 
   .modal-info .description {
-    margin-top:30px;
+    padding-top: 30px;
   }
 
   .modal-info .description > div > * {
@@ -176,6 +176,16 @@
       width: 960px;
       height: 540px;
     }
+  }
+
+  @media (min-width: 768px) {
+
+    /* remove text box shadow edge*/
+  .modal-info .description {
+    padding-left: 30px;
+    transform: translateX(-30px);
+  }
+
   }
 
   @media (max-width: 768px) {

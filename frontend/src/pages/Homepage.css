@@ -151,6 +151,10 @@
 
 @media (max-width: 768px) {
 
+    .grid {
+        margin-left: 0;
+    }
+
     .grid-item-image {
         width: 85%;
         height: 85%;

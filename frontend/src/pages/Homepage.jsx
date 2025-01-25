@@ -51,7 +51,6 @@ export default function Homepage() {
     setIsVisible(true)
     setIsRendering(true)
     document.body.style.overflowY = 'hidden'
-    document.body.style.scrollbarWidth = 'thin'
   }
   
   const onClose = () => {
