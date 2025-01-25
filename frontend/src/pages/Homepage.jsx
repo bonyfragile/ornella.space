@@ -50,14 +50,14 @@ export default function Homepage() {
     }
     setIsVisible(true)
     setIsRendering(true)
-    document.body.style.overflowY = 'hidden'
+    // document.body.style.overflowY = 'hidden'
   }
   
   const onClose = () => {
     // window.history.back()
     setIsVisible(false)
     navigate(`/`)
-    document.body.style.overflowY = 'scroll'
+    // document.body.style.overflowY = 'scroll'
     setTimeout(()=>{
       setIsRendering(false)
     }, 250) // duration should match the animation duration in css
