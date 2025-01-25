@@ -7,8 +7,21 @@
 }
 
 .lovelist-content {
-    max-width: 50%; 
-    width: 100%; 
+    /* max-width: 100%;  */
+    width: 50%; 
     align-items: center;
     max-height: 100%;
 }
+
+@media (max-width: 768px) {  
+    .lovelist-content {
+        width: 90%;
+        margin-bottom: 40px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lovelist-content {
+      width: 40%;
+    } 
+  }
