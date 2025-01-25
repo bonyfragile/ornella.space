@@ -1,5 +1,6 @@
 import './App.css'
 import { BrowserRouter as Router,Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './component/Navbar'
 import Homepage from './pages/Homepage'
 import Bio from './pages/Bio'
@@ -10,6 +11,7 @@ import NotFound from './pages/NotFound';
 function App() {
   return (
     <>
+    <HelmetProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -23,6 +25,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
+      </HelmetProvider>
     </>
   )
 }

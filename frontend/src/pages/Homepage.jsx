@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useNavigate, useParams } from 'react-router-dom'
 import Modal from '../component/Modal'
 import client from '../sanityClient'
@@ -65,7 +66,12 @@ export default function Homepage() {
   const imageUrl = projects.coverImage ? urlFor(projects.coverImage).url() : null;
 
   return (
-    
+    <>
+    <Helmet>
+      <title>ORNELLA</title>
+      <meta name="description" content="Ornella Pacchioni books, films and poetry projects" />
+      <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, poetry, films, books, projects" />
+    </Helmet>
     <div className={`home container ${isReady ? 'mount' : 'unmount'}`}>
       {/* Filter Toggle */}
       <div className="filters">
@@ -117,6 +123,7 @@ export default function Homepage() {
       
       {isRendering && <Modal project={visibleProj} onClose={onClose} isVisible={isVisible} /> }
     </div>
+    </>
     
   )
 }
