@@ -11,11 +11,12 @@
 .filters {
     display: flex;
     position: fixed;
+    flex-direction: row;
+    align-items: center;
     top: 0;
     height: 40px;
     gap: 40px;
     right: 40px;
-    align-items: center;
     z-index: 3;
 }
 
@@ -148,11 +149,19 @@
 }
 
 @media (max-width: 768px) {
+
+    .filters {
+        width: 100%;
+        right: auto;
+        justify-content: center;
+    }
+
     .grid-item-image {
         width: 85%;
         height: 85%;
     }
 
+    /* override iOS style sheet*/
     .filter-button {
         color: black;
     }
