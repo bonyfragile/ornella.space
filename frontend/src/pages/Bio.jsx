@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import client from '../sanityClient'
 import { urlFor} from '../imageUrl'
 import BlockContent from '@sanity/block-content-to-react'
@@ -24,11 +25,18 @@ export default function Bio() {
   const imageUrl = bio?.photo ? urlFor(bio.photo).width(600).url() : null;
 
   return (
+    <>
+    <Helmet>
+      <title>ORNELLA BIO</title>
+      <meta name="description" content="Ornella Pacchioni Biography" />
+      <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, bio, biography, CV" />
+    </Helmet>
     <div className={`bio-container ${isReady ? 'mount' : 'unmount'}`}>
       <div className="bio-content">
         <BlockContent blocks={bio?.description} projectId="f588b6e1" dataset="production" />     
         {imageUrl && (<img src={imageUrl} alt="Ornella Portrait" className="bio-photo" />)}
       </div>
     </div>
+    </>
   )
 }

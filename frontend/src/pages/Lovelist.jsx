@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import client from '../sanityClient'
 import BlockContent from '@sanity/block-content-to-react'
 import './Lovelist.css'
@@ -16,10 +17,17 @@ export default function Lovelist() {
 
 
   return (
+    <>
+    <Helmet>
+      <title>ORNELLA LOVELIST</title>
+      <meta name="description" content="Ornella Pacchioni lovelist" />
+      <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, lovelist" />
+    </Helmet>
     <div className="lovelist-container">
       <div className="lovelist-content">
         <BlockContent blocks={lovelist.text} projectId="f588b6e1" dataset="production" />
       </div>
     </div>
+    </>
   )
 }
