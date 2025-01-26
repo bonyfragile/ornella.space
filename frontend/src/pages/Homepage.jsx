@@ -39,10 +39,6 @@ export default function Homepage() {
     )
   }
 
-  {/*const isFiltered  =  (project) => {
-    return selectedFilters.includes(project._type)
-  }*/}
-
   const handleProjectClick = (project) => {
     navigate(`/${project.slug.current}`)
     if (selectedFilters.length === 0 || selectedFilters.includes(project._type)) {
@@ -106,16 +102,6 @@ export default function Homepage() {
                 </div>
               )}
             </div>
-            {/*<div className="grid-content">
-              {selectedFilters.includes(project.type) ? (
-                <img src={project.coverImage?.asset?.url} alt={project.title} className="grid-item-image visible" />
-              ) : (
-                <div className="grid-item-text">            
-                  <h3 className="title">{project.title}</h3>
-                  <h4 className="subtitle">{project.shortsubtitle}</h4>
-                </div>
-              )}            
-            </div>*/}
           </div>        
         ))}        
       </div>

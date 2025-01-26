@@ -1,6 +1,6 @@
 
 .home.container {
-    margin-right: 30px;
+    /*margin-right: 40px;*/
     flex-grow: 1;
 /* .container { merge -> not sure why we dont need those anymore so just leaving it commented for now
     flex-grow: 1;
@@ -118,9 +118,6 @@
     animation: fadeIn 0.5s ease-in;
 }
 
-.grid-item-image.fade-out {
-    animation: fadeOut 0.5s ease-out;
-}
 
 @keyframes fadeIn {
     from {opacity: 0;}
@@ -132,8 +129,8 @@
     to {opacity: 0;}
 }
 
-
-@media (min-width: 768px) {
+@media (hover: hover) {
+    /* targets only devices that can hover */
     .grid-item:hover .grid-item-text {
         opacity: 0;
     }
@@ -142,6 +139,7 @@
         opacity: 1;
     }
 }
+
 
 @media (min-width: 1200px) {
     .grid {
