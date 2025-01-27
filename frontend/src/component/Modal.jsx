@@ -8,6 +8,7 @@ import ChevronRight from './ChevronRight'
 
 export default function Modal({ project, onClose, isVisible }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const [isImageFullScreen, setIsImageFullScreen] = useState(false)
     const overlayRef = useRef()
 
     const nextImage = () => 
@@ -25,6 +26,10 @@ export default function Modal({ project, onClose, isVisible }) {
         onClose()
     }
 
+    const toggleFullScreen = () => {
+        setIsImageFullScreen((prev) => !prev)
+    }
+
     return project && ReactDom.createPortal(    
         <div 
             className={`modal-overlay ${isVisible ? 'visible': 'hidden'}`} 
@@ -40,7 +45,7 @@ export default function Modal({ project, onClose, isVisible }) {
                             {/* &lt; */}
                             <ChevronLeft />
                         </button> }
-                    <img src={project.images[currentImageIndex].asset.url} alt={project.title} className="modal-gallery-image" />
+                    <img src={project.images[currentImageIndex].asset.url} alt={project.title} className="modal-gallery-image" onClick={toggleFullScreen} />
                     {project.images.length > 1 && 
                         <button className="nav-button right" onClick={nextImage}>
                             {/* &gt; */}
@@ -54,7 +59,13 @@ export default function Modal({ project, onClose, isVisible }) {
                     <div className="description"><BlockContent blocks={project.description} projectId="f588b6e1" dataset="production" /></div>
                     {/* <button className="close-button" onClick={onClose}>Back</button> */}
                 </div>
-            </div>    
+            </div>
+
+            {isImageFullScreen && (
+                <div className='fullscreen-overlay' onClick={toggleFullScreen}>
+                    <img src={project.images[currentImageIndex].asset.url} alt={project.title} className="fullscreen-image" />
+                </div>    
+            )}  
         </div>,
         document.getElementById('portal')
     )
