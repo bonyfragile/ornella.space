@@ -43,8 +43,9 @@ export default function LovelistForm({addVerse}) {
         onSubmit={handleSubmit(handlePost)}
         name="lovelist"
         method="POST"
+        netlify
         // action="/lovelist/"
-        data-netlify="true"
+        // data-netlify="true"
         // netlify-honeypot="got-ya"
     >
         <input type="hidden" name="form-name" value="lovelist" />
