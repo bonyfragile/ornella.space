@@ -27,7 +27,7 @@ export default function LovelistForm({addVerse}) {
         body: encode({ "lovelist": "lovelist", ...formData }),
         })
         .then((response) => {
-            navigate("/lovelist/")
+            // navigate("/lovelist/")
             reset()
             console.log("RESPONSE", response)
         })
