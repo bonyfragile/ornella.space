@@ -5,5 +5,5 @@ status = 200
 
 [build]
 command = "npm run build"
-publish = "frontend/dist"
-functions = "frontend/functions/"
+publish = "dist"
+functions = "functions/"
