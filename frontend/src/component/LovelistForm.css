@@ -1,0 +1,23 @@
+.lovelistform {
+    margin: 10px;
+    height: auto;
+}
+
+.lovelistform label {
+    display: flex;
+    justify-content: center;
+}
+
+.lovelistform button,
+.lovelistform input {
+    height: 20px;
+    color: #F21C0A;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 0.8em;
+    margin: 0 10px;
+}
+
+.error {
+    color: grey; 
+}
