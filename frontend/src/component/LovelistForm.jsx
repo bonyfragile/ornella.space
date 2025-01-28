@@ -51,6 +51,7 @@ export default function LovelistForm({addVerse}) {
         <label htmlFor="verse">
             <input 
                 id="verse"
+                name="verse"
                 {...register('verse', { 
                     required: true, 
                     pattern: {value: /^(?!.*\b(ass|asshole|fuck|boob|penis|dick|pussy|retarded|faggot)\b).*$/}
