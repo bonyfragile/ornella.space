@@ -18,8 +18,10 @@ export default function LovelistForm({addVerse}) {
 
     // Handles the post process to Netlify so we can access their serverless functions
     const handlePost = (formData, event) => {
+        console.log("start handlePost?");
+        
         addVerse() 
-        fetch(`/`, {
+        fetch(`/.netlify/functions/submission-created`, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "lovelist": "lovelist", ...formData }),
@@ -30,7 +32,7 @@ export default function LovelistForm({addVerse}) {
             console.log("RESPONSE", response)
         })
         .catch((error) => {
-            console.log(error)
+            console.log("Error", error)
         })
         event.preventDefault()
     }
