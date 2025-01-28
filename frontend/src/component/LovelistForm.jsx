@@ -4,7 +4,8 @@ import './LovelistForm.css'
 
 export default function LovelistForm({addVerse}) {
     const [loveVerse, setLoveVerse] = useState('')
-    const { register, handleSubmit, formState: { errors }, reset } = useForm()
+    const { register, handleSubmit, reset } = useForm()
+    // const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
     // Transforms the form data from the React Hook Form output to a format Netlify can read
     const encode = (data) => {
@@ -47,19 +48,19 @@ export default function LovelistForm({addVerse}) {
         // netlify-honeypot="got-ya"
     >
         <input type="hidden" name="form-name" value="lovelist" />
-        <input type="hidden" value="lovelist" {...register('formId')}/>
+        {/* <input type="hidden" value="lovelist" {...register('formId')}/> */}
         <label htmlFor="verse">
             <input 
-                id="verse"
-                name="verse"
                 {...register('verse', { 
                     required: true, 
                     pattern: {value: /^(?!.*\b(ass|asshole|fuck|boob|penis|dick|pussy|retarded|faggot)\b).*$/}
                 })} 
+                id="verse"
+                name="verse"
                 value={loveVerse} 
                 onChange={(e) => setLoveVerse(e.target.value)} 
             />
-            {errors.verse && <p className='error'>Be kind.</p>}
+            {/* {errors.verse && <p className='error'>Be kind.</p>} */}
         </label>
 
         <button className="filter-button" type="submit">Submit</button>
