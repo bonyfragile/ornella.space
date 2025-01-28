@@ -46,8 +46,8 @@ export default function LovelistForm({addVerse}) {
         data-netlify="true"
         // netlify-honeypot="got-ya"
     >
-        <input type="hidden" name="lovelist" value="lovelist-form" />
-        <input type="hidden" value="lovelist-form" {...register('formId')}/>
+        <input type="hidden" name="form-name" value="lovelist" />
+        <input type="hidden" value="lovelist" {...register('formId')}/>
         <label htmlFor="verse">
             <input 
                 id="verse"
