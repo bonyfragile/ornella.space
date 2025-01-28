@@ -5,5 +5,6 @@ export default {
     fields: [
         {name: 'title', title: 'Title', type: 'string'},
         {name: 'text', title: 'Text', type: 'array', of: [{type: 'block'}]},
+        {name: 'verses', title: 'Submitted Verses', type: 'array', of: [{type: 'string'}]},
     ],
 };

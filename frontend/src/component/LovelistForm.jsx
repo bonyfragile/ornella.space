@@ -5,24 +5,53 @@ import './LovelistForm.css'
 export default function LovelistForm({addVerse}) {
     const [loveVerse, setLoveVerse] = useState('')
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
+
+    // Transforms the form data from the React Hook Form output to a format Netlify can read
+    const encode = (data) => {
+        return Object.keys(data)
+            .map(
+                (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+            )
+            .join("&")
+    }
+
+    // Handles the post process to Netlify so we can access their serverless functions
+    const handlePost = (formData, event) => {
+        addVerse() 
+        fetch(`/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "lovelist": "lovelist", ...formData }),
+        })
+        .then((response) => {
+            // navigate("/lovelist/")
+            reset()
+            console.log(response)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+        event.preventDefault()
+    }
+    
     
 
   return (
     <form 
-        className="lovelist"
-        onSubmit={handleSubmit(addVerse)}
-        name="lovelistform"
+        className="lovelistform"
+        onSubmit={handleSubmit(handlePost)}
+        name="lovelist"
         method="POST"
         action="/lovelist/"
         data-netlify="true"
         netlify-honeypot="got-ya"
     >
-        {/* <input type="hidden" name="lovelist" value="lovelist" /> */}
+        <input type="hidden" name="lovelist" value="lovelist" />
         <input
             type="hidden"
-            name="formId"
+            // name="formId"
             value="lovelist"
-            // ref={register()}
+            {...register('formId')}
         />
         <label htmlFor="verse">
             {/* <p>Love Verse</p> */}
@@ -51,14 +80,10 @@ export default function LovelistForm({addVerse}) {
             border: '0',
             }}
         >
-            Don’t fill this out if you're human:
-            <input tabIndex="-1" name="got-ya" ref={register()} />
+            Don't fill this out if you're human:
+            <input tabIndex="-1" {...register("got-ya")} />
         </label>
         <div><button className="filter-button" type="submit">Submit</button></div>
-
-        {/* <label>Love Verse</label>
-        <input type="text" value={loveVerse} onChange={(e) => setLoveVerse(e.target.value)} />
-        <input type="submit" value="add verse" /> */}
     </form>
   )
 }

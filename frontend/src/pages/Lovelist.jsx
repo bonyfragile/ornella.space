@@ -9,6 +9,8 @@ export default function Lovelist() {
   const [lovelist, setLovelist] = useState(null)
   const [isReady, setIsReady] = useState(false)
 
+  console.log(client);
+  
   useEffect(() => {
     client.fetch('*[_type == "lovelist"]{text}')
     .then((data) => setLovelist(data[0]))
