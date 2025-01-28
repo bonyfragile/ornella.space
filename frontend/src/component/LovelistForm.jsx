@@ -26,7 +26,7 @@ export default function LovelistForm({addVerse}) {
         .then((response) => {
             // navigate("/lovelist/")
             reset()
-            console.log(response)
+            console.log("RESPONSE", response)
         })
         .catch((error) => {
             console.log(error)
@@ -46,13 +46,8 @@ export default function LovelistForm({addVerse}) {
         data-netlify="true"
         // netlify-honeypot="got-ya"
     >
-        {/* <input type="hidden" name="lovelist" value="lovelist" />
-        <input
-            type="hidden"
-            // name="formId"
-            value="lovelist"
-            {...register('formId')}
-        /> */}
+        <input type="hidden" name="lovelist" value="lovelist-form" />
+        <input type="hidden" value="lovelist-form" {...register('formId')}/>
         <label htmlFor="verse">
             <input 
                 id="verse"
