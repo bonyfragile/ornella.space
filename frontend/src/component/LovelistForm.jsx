@@ -42,19 +42,18 @@ export default function LovelistForm({addVerse}) {
         onSubmit={handleSubmit(handlePost)}
         name="lovelist"
         method="POST"
-        action="/lovelist/"
+        // action="/lovelist/"
         data-netlify="true"
-        netlify-honeypot="got-ya"
+        // netlify-honeypot="got-ya"
     >
-        <input type="hidden" name="lovelist" value="lovelist" />
+        {/* <input type="hidden" name="lovelist" value="lovelist" />
         <input
             type="hidden"
             // name="formId"
             value="lovelist"
             {...register('formId')}
-        />
+        /> */}
         <label htmlFor="verse">
-            {/* <p>Love Verse</p> */}
             <input 
                 id="verse"
                 {...register('verse', { 
@@ -67,7 +66,9 @@ export default function LovelistForm({addVerse}) {
             {errors.verse && <p className='error'>Be kind.</p>}
         </label>
 
-        <label
+        <button className="filter-button" type="submit">Submit</button>
+
+        {/* <label
             htmlFor="got-ya"
             style={{
             position: 'absolute',
@@ -82,8 +83,8 @@ export default function LovelistForm({addVerse}) {
         >
             Don't fill this out if you're human:
             <input tabIndex="-1" {...register("got-ya")} />
-        </label>
-        <div><button className="filter-button" type="submit">Submit</button></div>
+        </label> */}
+
     </form>
   )
 }
