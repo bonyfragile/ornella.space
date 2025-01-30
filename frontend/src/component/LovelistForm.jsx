@@ -1,24 +1,12 @@
 import React, {useState} from 'react'
-// import { useForm } from 'react-hook-form'
 import './LovelistForm.css'
 
 export default function LovelistForm({addVerse}) {
     const [loveVerse, setLoveVerse] = useState('')
     const [formData, setFormData] = useState({verse: ""})
 
-    // const { register, handleSubmit, formState: { errors }, reset } = useForm()
-
-    // // Transforms the form data from the React Hook Form output to a format Netlify can read
-    // const encode = (data) => {
-    //     return Object.keys(data)
-    //         .map(
-    //             (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-    //         )
-    //         .join("&")
-    // }
-
     // Handles the post process to Netlify so we can access their serverless functions
-    const handleSubmit = (event) => {
+    const handleSubmit = (e) => {
         console.log("start handlePost")
 
         e.preventDefault()
@@ -52,11 +40,7 @@ export default function LovelistForm({addVerse}) {
         {/* <input type="hidden" value="lovelist" {...register('formId')}/> */}
         <label htmlFor="verse">
             <input 
-                // {...register('verse', { 
-                //     required: true, 
-                //     pattern: {value: /^(?!.*\b(ass|asshole|fuck|boob|penis|dick|pussy|retarded|faggot)\b).*$/}
-                // })} 
-                // pattern='/^(?!.*\b(ass|asshole|fuck|boob|penis|dick|pussy|retarded|faggot)\b).*$/'
+                pattern='/^(?!.*\b(ass|asshole|fuck|boob|penis|dick|pussy|retarded|faggot)\b).*$/'
                 required
                 id="verse"
                 name="verse"
