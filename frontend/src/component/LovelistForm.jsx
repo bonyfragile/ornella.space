@@ -7,7 +7,7 @@ export default function LovelistForm({addVerse}) {
     const handleChange = (e) => {
         const input = e.target
         setLoveVerse(input.value)        
-        if (input.validity.valid) input.setCustomValidity("") // Clear any custom validity messages
+        // if (input.validity.valid) input.setCustomValidity("") // Clear any custom validity messages
     }
 
     // Handles the post process to Netlify so we can access their serverless functions
@@ -27,10 +27,9 @@ export default function LovelistForm({addVerse}) {
             .catch((error) => alert("Error submitting form: " + error))
     }
 
-
     const handleInvalid = (e) => {
         if (e.target.validity.patternMismatch) {
-            e.target.setCustomValidity("You cannot use certain words like hate, anger, or jealousy.")
+            e.target.setCustomValidity("Chose your words kindly.")
         } else e.target.setCustomValidity("")
     }
     
@@ -51,10 +50,10 @@ export default function LovelistForm({addVerse}) {
                 name="verse"
                 value={loveVerse} 
                 required
-                pattern='^(?!.*\b(hate|anger|jealous)\b).*'
+                pattern='^(?!.*\b(asshole|anger)\b).*'
                 title="Chose your words kindly."
                 onChange={handleChange} 
-                oninvalid={handleInvalid}
+                onInvalid={handleInvalid}
                 // placeholder='type something'
             />
         </label>

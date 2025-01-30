@@ -31,8 +31,6 @@ export default function Homepage() {
     requestAnimationFrame(() => setIsReady(true))
 }, [])
 
-  console.log(projects)
-
   const toggleFilter = (category) => {
     setSelectedFilters((prev) => 
       prev.includes(category) ? prev.filter((filter) => filter !== category) : [...prev, category]

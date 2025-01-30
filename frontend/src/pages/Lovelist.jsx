@@ -9,14 +9,11 @@ export default function Lovelist() {
   const [lovelist, setLovelist] = useState(null)
   const [isReady, setIsReady] = useState(false)
 
-  console.log(client)
+  // console.log(client)
   
   useEffect(() => {
-    client.fetch('*[_type == "lovelist"]{text}')
-    .then((data) => {
-      console.log("initial lovelist", data[0])
-      setLovelist(data[0])
-    })
+    client.fetch('*[_type == "lovelist"]{verses}')
+    .then((data) => {setLovelist(data[0].verses)})
     .catch(console.error)
 
     requestAnimationFrame(() => setIsReady(true))
@@ -24,7 +21,8 @@ export default function Lovelist() {
 
   async function addVerse(formData) {
     
-    // setLovelist([...lovelist])
+    setLovelist([...lovelist, formData.get('verse')])
+    console.log("addVerse: ", lovelist, formData.get('verse'))
     // console.log("addVerse() called", formData);
     
     // await client.create({
@@ -43,7 +41,8 @@ export default function Lovelist() {
     </Helmet>
     <div className={`lovelist container ${isReady ? 'mount' : 'unmount'}`}>
       <div className="lovelist-content">
-        <BlockContent blocks={lovelist?.text} projectId="f588b6e1" dataset="production" />
+        {lovelist && lovelist.map((verse, i) => <p key={i}>{verse}</p>)}
+        {/* <BlockContent blocks={lovelist?.text} projectId="f588b6e1" dataset="production" /> */}
       </div>
       <LovelistForm addVerse={addVerse}/>
     </div>
