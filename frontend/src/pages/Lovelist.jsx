@@ -21,10 +21,22 @@ export default function Lovelist() {
 
   async function addVerse(formData) {
     
-    setLovelist([...lovelist, formData.get('verse')])
-    console.log("addVerse: ", lovelist, formData.get('verse'))
-    // console.log("addVerse() called", formData);
+    newVerse = formData.get('verse')
+    setLovelist([...lovelist, newVerse])
+    console.log("addVerse: ", lovelist, newVerse)
     
+    const documentId = '62c8f92c-187a-441c-ba31-53ffaffff9df'
+    client
+        .patch(documentId) // Target the document by ID
+        // .setIfMissing({ arrayField: [] }) // Ensure the array exists
+        .append('verses', [newVerse]) // Append the new string to the array
+        .commit() // Commit the changes
+        .then((updatedDocument) => {
+        console.log('SANITY Updated document:', updatedDocument)
+        })
+        .catch((error) => {
+        console.error('SANITY Error updating document:', error)
+        })
     // await client.create({
     //   _type: "lovelistForm",
     //   verse: verse,

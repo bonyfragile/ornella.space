@@ -15,8 +15,6 @@ export default function LovelistForm({addVerse}) {
         e.preventDefault()
 
         const formData = new FormData(e.target)
-        console.log("check formData" , formData.get('verse'), formData)
-        
         addVerse(formData) 
 
         fetch("/", {
