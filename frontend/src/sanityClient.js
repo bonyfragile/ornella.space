@@ -1,5 +1,4 @@
 import { createClient } from '@sanity/client'
-import 'dotenv/config'
 
 const client = createClient ({
     projectId: 'f588b6e1',
