@@ -6,23 +6,16 @@ export default function LovelistForm({addVerse}) {
     
     const handleChange = (e) => {
         const input = e.target
-        console.log("input", input)
-
-        setLoveVerse(input.value)
-        // console.log("handleChange", formData, input.value);
-        
+        setLoveVerse(input.value)        
         if (input.validity.valid) input.setCustomValidity("") // Clear any custom validity messages
     }
 
     // Handles the post process to Netlify so we can access their serverless functions
     const handleSubmit = (e) => {
         e.preventDefault()
-        
-        const form = e.target
-        console.log("form", form)
-        
-        const formData = new FormData(form)
-        console.log("check formData" , formData.get('verse'))
+
+        const formData = new FormData(e.target)
+        console.log("check formData" , formData.get('verse'), formData)
         
         addVerse(formData) 
 
@@ -53,13 +46,14 @@ export default function LovelistForm({addVerse}) {
         {/* <input type="hidden" value="lovelist" name="formId" /> */}
         <label htmlFor="verse">
             <input 
-                pattern='^(?!.*\b(hate|anger|jealous)\b).*'
-                required
+                type="text"
                 id="verse"
                 name="verse"
                 value={loveVerse} 
-                onChange={handleChange} 
+                required
+                pattern='^(?!.*\b(hate|anger|jealous)\b).*'
                 title="Chose your words kindly."
+                onChange={handleChange} 
                 oninvalid={handleInvalid}
                 // placeholder='type something'
             />
