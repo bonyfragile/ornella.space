@@ -12,7 +12,7 @@ export default function LovelistForm({addVerse}) {
         e.preventDefault()
         
         const form = e.target
-        console.log(form);
+        console.log("form", form);
         
         const formData = new FormData(form)
         addVerse(formData) 
@@ -22,13 +22,22 @@ export default function LovelistForm({addVerse}) {
             body: formData,
         })
             .then(() => alert("Form submitted successfully!"))
-            .catch((error) => alert("Error submitting form: " + error));
+            .catch((error) => alert("Error submitting form: " + error))
     }
 
     const handleChange = (e) => {
         setLoveVerse(e.target.value)
         setFormData({ ...formData, [e.target.name]: e.target.value })
+        console.log("handleChange", formData, e.target.name, e.target.value);
+        
       }
+
+
+    const handleInvalid = (e) => {
+        if (e.target.validity.patternMismatch) {
+            e.target.setCustomValidity("You cannot use certain words like hate, anger, or jealousy.")
+        } else e.target.setCustomValidity("")
+    }
     
   return (
     <form 
@@ -49,6 +58,7 @@ export default function LovelistForm({addVerse}) {
                 value={loveVerse} 
                 onChange={handleChange} 
                 title="Chose your words kindly."
+                oninvalid={handleInvalid}
                 // placeholder='type something'
             />
         </label>
