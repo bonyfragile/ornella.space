@@ -40,7 +40,7 @@ export default function LovelistForm({addVerse}) {
         {/* <input type="hidden" value="lovelist" {...register('formId')}/> */}
         <label htmlFor="verse">
             <input 
-                pattern='/^(?!.*\b(ass|asshole|fuck|boob|penis|dick|pussy|retarded|faggot)\b).*$/'
+                pattern='^(?!.*\b(hate|anger|jealous)\b).*'
                 required
                 id="verse"
                 name="verse"
