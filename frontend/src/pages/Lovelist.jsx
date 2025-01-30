@@ -20,7 +20,7 @@ export default function Lovelist() {
   }, [])
 
   async function addVerse(formData) {
-    console.log(formData);
+    console.log("addVerse() called", formData);
     
     // await client.create({
     //   _type: "lovelistForm",

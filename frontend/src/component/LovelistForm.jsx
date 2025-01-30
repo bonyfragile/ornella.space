@@ -10,10 +10,12 @@ export default function LovelistForm({addVerse}) {
         console.log("start handlePost", e.target)
 
         e.preventDefault()
-        addVerse() 
-
+        
         const form = e.target
+        console.log(form);
+        
         const formData = new FormData(form)
+        addVerse(formData) 
 
         fetch("/", {
             method: "POST",
@@ -25,7 +27,7 @@ export default function LovelistForm({addVerse}) {
 
     const handleChange = (e) => {
         setLoveVerse(e.target.value)
-        setFormData({ ...formData, [e.target.verse]: e.target.value })
+        setFormData({ ...formData, [e.target.name]: e.target.value })
       }
     
   return (
@@ -46,6 +48,8 @@ export default function LovelistForm({addVerse}) {
                 name="verse"
                 value={loveVerse} 
                 onChange={handleChange} 
+                title="Chose your words kindly."
+                // placeholder='type something'
             />
         </label>
 
