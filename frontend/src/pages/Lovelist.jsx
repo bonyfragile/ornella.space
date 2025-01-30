@@ -27,9 +27,9 @@ export default function Lovelist() {
     
     const documentId = '62c8f92c-187a-441c-ba31-53ffaffff9df'
     client
-      .patch(documentId) // Target the document by ID
-      .append('verses', [newVerse]) // Append the new string to the array
-      .commit() // Commit the changes
+      .patch(documentId)
+      .append('verses', [newVerse])
+      .commit()
       .then((updatedDocument) => {
         console.log('SANITY Updated document:', updatedDocument)
       })
@@ -41,17 +41,17 @@ export default function Lovelist() {
   // if (!lovelist) return <p>Loading...</p>;
   return (
     <>
-    <Helmet>
-      <title>ORNELLA LOVELIST</title>
-      <meta name="description" content="Ornella Pacchioni lovelist" />
-      <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, lovelist" />
-    </Helmet>
-    <div className={`lovelist container ${isReady ? 'mount' : 'unmount'}`}>
-      <div className="lovelist-content">
-        {lovelist && lovelist.map((verse, i) => <p key={i}>{verse}</p>)}
+      <Helmet>
+        <title>ORNELLA LOVELIST</title>
+        <meta name="description" content="Ornella Pacchioni lovelist" />
+        <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, lovelist" />
+      </Helmet>
+      <div className={`lovelist container ${isReady ? 'mount' : 'unmount'}`}>
+        <div className="lovelist-content">
+          {lovelist && lovelist.map((verse, i) => <p key={i}>{verse}</p>)}
+        </div>
+        <LovelistForm addVerse={addVerse} banned={banned}/>
       </div>
-      <LovelistForm addVerse={addVerse} banned={banned}/>
-    </div>
     </>
   )
 }

@@ -4,13 +4,8 @@ import './LovelistForm.css'
 export default function LovelistForm({addVerse, banned}) {
     const [loveVerse, setLoveVerse] = useState('')
     
-    const handleChange = (e) => {
-        const input = e.target
-        setLoveVerse(input.value)        
-        // if (input.validity.valid) input.setCustomValidity("") // Clear any custom validity messages
-    }
+    const handleChange = (e) => setLoveVerse(e.target.value)        
 
-    // Handles the post process to Netlify so we can access their serverless functions
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -22,7 +17,7 @@ export default function LovelistForm({addVerse, banned}) {
             method: "POST",
             body: formData,
         })
-            .then(() => alert("Form submitted successfully!"))
+            .then(() => console.log("Form submitted successfully!"))
             .catch((error) => alert("Error submitting form: " + error))
     }
 
@@ -48,7 +43,6 @@ export default function LovelistForm({addVerse, banned}) {
                 name="verse"
                 value={loveVerse} 
                 required
-                // pattern='^(?!.*\b(asshole|anger)\b).*'
                 pattern={`^(?!.*\\b(${banned ? banned.join("|") : ""})\\b).*`}
                 title="Chose your words kindly."
                 onChange={handleChange} 
@@ -56,7 +50,6 @@ export default function LovelistForm({addVerse, banned}) {
                 // placeholder='type something'
             />
         </label>
-
         <button className="filter-button" type="submit">Submit</button>
 
         {/* <label
@@ -75,7 +68,6 @@ export default function LovelistForm({addVerse, banned}) {
             Don't fill this out if you're human:
             <input tabIndex="-1" {...register("got-ya")} />
         </label> */}
-
     </form>
   )
 }
