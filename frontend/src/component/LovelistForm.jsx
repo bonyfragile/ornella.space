@@ -3,18 +3,27 @@ import './LovelistForm.css'
 
 export default function LovelistForm({addVerse}) {
     const [loveVerse, setLoveVerse] = useState('')
-    const [formData, setFormData] = useState({verse: ""})
+    
+    const handleChange = (e) => {
+        const input = e.target
+        console.log("input", input)
+
+        setLoveVerse(input.value)
+        // console.log("handleChange", formData, input.value);
+        
+        if (input.validity.valid) input.setCustomValidity("") // Clear any custom validity messages
+    }
 
     // Handles the post process to Netlify so we can access their serverless functions
     const handleSubmit = (e) => {
-        console.log("start handlePost", e.target)
-
         e.preventDefault()
         
         const form = e.target
-        console.log("form", form);
+        console.log("form", form)
         
         const formData = new FormData(form)
+        console.log("check formData" , formData.get('verse'))
+        
         addVerse(formData) 
 
         fetch("/", {
@@ -24,13 +33,6 @@ export default function LovelistForm({addVerse}) {
             .then(() => alert("Form submitted successfully!"))
             .catch((error) => alert("Error submitting form: " + error))
     }
-
-    const handleChange = (e) => {
-        setLoveVerse(e.target.value)
-        setFormData({ ...formData, [e.target.name]: e.target.value })
-        console.log("handleChange", formData, e.target.name, e.target.value);
-        
-      }
 
 
     const handleInvalid = (e) => {
@@ -48,7 +50,7 @@ export default function LovelistForm({addVerse}) {
         data-netlify="true"
     >
         <input type="hidden" name="form-name" value="lovelist" />
-        {/* <input type="hidden" value="lovelist" {...register('formId')}/> */}
+        {/* <input type="hidden" value="lovelist" name="formId" /> */}
         <label htmlFor="verse">
             <input 
                 pattern='^(?!.*\b(hate|anger|jealous)\b).*'
