@@ -7,7 +7,7 @@ export default function LovelistForm({addVerse}) {
 
     // Handles the post process to Netlify so we can access their serverless functions
     const handleSubmit = (e) => {
-        console.log("start handlePost")
+        console.log("start handlePost", e.target)
 
         e.preventDefault()
         addVerse() 
@@ -18,14 +18,14 @@ export default function LovelistForm({addVerse}) {
         fetch("/", {
             method: "POST",
             body: formData,
-          })
+        })
             .then(() => alert("Form submitted successfully!"))
             .catch((error) => alert("Error submitting form: " + error));
     }
 
     const handleChange = (e) => {
         setLoveVerse(e.target.value)
-        setFormData({ ...formData, [e.target.name]: e.target.value })
+        setFormData({ ...formData, [e.target.verse]: e.target.value })
       }
     
   return (
