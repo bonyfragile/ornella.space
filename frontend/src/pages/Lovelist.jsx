@@ -9,17 +9,22 @@ export default function Lovelist() {
   const [lovelist, setLovelist] = useState(null)
   const [isReady, setIsReady] = useState(false)
 
-  console.log(client);
+  console.log(client)
   
   useEffect(() => {
     client.fetch('*[_type == "lovelist"]{text}')
-    .then((data) => setLovelist(data[0]))
+    .then((data) => {
+      console.log("initial lovelist", data[0])
+      setLovelist(data[0])
+    })
     .catch(console.error)
 
     requestAnimationFrame(() => setIsReady(true))
   }, [])
 
   async function addVerse(formData) {
+    
+    // setLovelist([...lovelist])
     // console.log("addVerse() called", formData);
     
     // await client.create({
