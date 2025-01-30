@@ -17,12 +17,12 @@ export default function LovelistForm({addVerse}) {
         const formData = new FormData(e.target)
         addVerse(formData) 
 
-        fetch("/", {
-            method: "POST",
-            body: formData,
-        })
-            .then(() => alert("Form submitted successfully!"))
-            .catch((error) => alert("Error submitting form: " + error))
+        // fetch("/", {
+        //     method: "POST",
+        //     body: formData,
+        // })
+        //     .then(() => alert("Form submitted successfully!"))
+        //     .catch((error) => alert("Error submitting form: " + error))
     }
 
     const handleInvalid = (e) => {
@@ -37,7 +37,7 @@ export default function LovelistForm({addVerse}) {
         onSubmit={handleSubmit}
         name="lovelist"
         method="POST"
-        data-netlify="true"
+        // data-netlify="true"
     >
         <input type="hidden" name="form-name" value="lovelist" />
         {/* <input type="hidden" value="lovelist" name="formId" /> */}
