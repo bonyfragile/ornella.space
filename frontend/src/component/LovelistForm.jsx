@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './LovelistForm.css'
 
-export default function LovelistForm({addVerse}) {
+export default function LovelistForm({addVerse, banned}) {
     const [loveVerse, setLoveVerse] = useState('')
     
     const handleChange = (e) => {
@@ -16,6 +16,7 @@ export default function LovelistForm({addVerse}) {
 
         const formData = new FormData(e.target)
         addVerse(formData) 
+        setLoveVerse('')
 
         // fetch("/", {
         //     method: "POST",
@@ -37,10 +38,9 @@ export default function LovelistForm({addVerse}) {
         onSubmit={handleSubmit}
         name="lovelist"
         method="POST"
-        // data-netlify="true"
+        data-netlify="true"
     >
         <input type="hidden" name="form-name" value="lovelist" />
-        {/* <input type="hidden" value="lovelist" name="formId" /> */}
         <label htmlFor="verse">
             <input 
                 type="text"
@@ -48,7 +48,8 @@ export default function LovelistForm({addVerse}) {
                 name="verse"
                 value={loveVerse} 
                 required
-                pattern='^(?!.*\b(asshole|anger)\b).*'
+                // pattern='^(?!.*\b(asshole|anger)\b).*'
+                pattern={`^(?!.*\\b(${banned ? banned.join("|") : ""})\\b).*`}
                 title="Chose your words kindly."
                 onChange={handleChange} 
                 onInvalid={handleInvalid}

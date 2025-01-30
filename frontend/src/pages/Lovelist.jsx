@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import client from '../sanityClient'
-import BlockContent from '@sanity/block-content-to-react'
 import './Lovelist.css'
 import LovelistForm from '../component/LovelistForm'
 
 export default function Lovelist() {
   const [lovelist, setLovelist] = useState(null)
+  const [banned, setBanned] = useState(null)
   const [isReady, setIsReady] = useState(false)
   
   useEffect(() => {
     client
-      .fetch('*[_type == "lovelist"]{verses}')
-      .then((data) => {setLovelist(data[0].verses)})
+      .fetch('*[_type == "lovelist"]{verses, banned}')
+      .then((data) => {
+        setLovelist(data[0].verses)
+        setBanned(data[0].banned)
+      })
       .catch(console.error)
 
     requestAnimationFrame(() => setIsReady(true))
@@ -47,7 +50,7 @@ export default function Lovelist() {
       <div className="lovelist-content">
         {lovelist && lovelist.map((verse, i) => <p key={i}>{verse}</p>)}
       </div>
-      <LovelistForm addVerse={addVerse}/>
+      <LovelistForm addVerse={addVerse} banned={banned}/>
     </div>
     </>
   )
