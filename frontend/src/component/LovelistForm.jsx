@@ -18,12 +18,12 @@ export default function LovelistForm({addVerse, banned}) {
         addVerse(formData) 
         setLoveVerse('')
 
-        // fetch("/", {
-        //     method: "POST",
-        //     body: formData,
-        // })
-        //     .then(() => alert("Form submitted successfully!"))
-        //     .catch((error) => alert("Error submitting form: " + error))
+        fetch("/", {
+            method: "POST",
+            body: formData,
+        })
+            .then(() => alert("Form submitted successfully!"))
+            .catch((error) => alert("Error submitting form: " + error))
     }
 
     const handleInvalid = (e) => {
