@@ -20,7 +20,7 @@ export default function Lovelist() {
 
   async function addVerse(formData) {
     const newVerse = formData.get('verse')
-    // setLovelist([...lovelist, newVerse])
+    setLovelist([...lovelist, newVerse])
     
     const documentId = '62c8f92c-187a-441c-ba31-53ffaffff9df'
     client
