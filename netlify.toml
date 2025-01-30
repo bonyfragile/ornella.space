@@ -1,10 +1,17 @@
 [[redirects]]
-from="/*"
-to="/index.html"
-status = 200
+    from="/*"
+    to="/index.html"
+    status = 200
 
 [build]
-base="frontend"
-command = "npm run build"
-publish = "dist"
-functions = "netlify/functions/"
+    command = "npm run build"
+    publish = "frontent/dist"
+    functions = "frontend/netlify/functions/"
+
+[[headers]]
+    for = "/*"
+        [headers.values]
+        Content-Security-Policy = "frame-ancestors 'self'"
+
+[[plugins]]
+    package = "@netlify/plugin-inline-functions"

@@ -1,69 +1,68 @@
 import React, {useState} from 'react'
-import { useForm } from 'react-hook-form'
+// import { useForm } from 'react-hook-form'
 import './LovelistForm.css'
 
 export default function LovelistForm({addVerse}) {
     const [loveVerse, setLoveVerse] = useState('')
-    const { register, handleSubmit, reset } = useForm()
+    const [formData, setFormData] = useState({verse: ""})
+
     // const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
-    // Transforms the form data from the React Hook Form output to a format Netlify can read
-    const encode = (data) => {
-        return Object.keys(data)
-            .map(
-                (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-            )
-            .join("&")
-    }
+    // // Transforms the form data from the React Hook Form output to a format Netlify can read
+    // const encode = (data) => {
+    //     return Object.keys(data)
+    //         .map(
+    //             (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+    //         )
+    //         .join("&")
+    // }
 
     // Handles the post process to Netlify so we can access their serverless functions
-    const handlePost = (formData, event) => {
-        console.log("start handlePost?");
-        
-        addVerse() 
-        fetch(`/.netlify/functions/submission-created`, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "lovelist": "lovelist", ...formData }),
-        })
-        .then((response) => {
-            // navigate("/lovelist/")
-            reset()
-            console.log("RESPONSE", response)
-        })
-        .catch((error) => {
-            console.log("Error", error)
-        })
-        event.preventDefault()
-    }
-    
-    
+    const handleSubmit = (event) => {
+        console.log("start handlePost")
 
+        e.preventDefault()
+        addVerse() 
+
+        const form = e.target
+        const formData = new FormData(form)
+
+        fetch("/", {
+            method: "POST",
+            body: formData,
+          })
+            .then(() => alert("Form submitted successfully!"))
+            .catch((error) => alert("Error submitting form: " + error));
+    }
+
+    const handleChange = (e) => {
+        setLoveVerse(e.target.value)
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+      }
+    
   return (
     <form 
         className="lovelistform"
-        onSubmit={handleSubmit(handlePost)}
+        onSubmit={handleSubmit}
         name="lovelist"
         method="POST"
-        netlify
-        // action="/lovelist/"
-        // data-netlify="true"
-        // netlify-honeypot="got-ya"
+        data-netlify="true"
     >
         <input type="hidden" name="form-name" value="lovelist" />
         {/* <input type="hidden" value="lovelist" {...register('formId')}/> */}
         <label htmlFor="verse">
             <input 
-                {...register('verse', { 
-                    required: true, 
-                    pattern: {value: /^(?!.*\b(ass|asshole|fuck|boob|penis|dick|pussy|retarded|faggot)\b).*$/}
-                })} 
+                // {...register('verse', { 
+                //     required: true, 
+                //     pattern: {value: /^(?!.*\b(ass|asshole|fuck|boob|penis|dick|pussy|retarded|faggot)\b).*$/}
+                // })} 
+                // pattern='/^(?!.*\b(ass|asshole|fuck|boob|penis|dick|pussy|retarded|faggot)\b).*$/'
+                required
                 id="verse"
                 name="verse"
                 value={loveVerse} 
-                onChange={(e) => setLoveVerse(e.target.value)} 
+                onChange={handleChange} 
             />
-            {/* {errors.verse && <p className='error'>Be kind.</p>} */}
         </label>
 
         <button className="filter-button" type="submit">Submit</button>
