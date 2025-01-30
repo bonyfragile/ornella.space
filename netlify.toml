@@ -12,6 +12,3 @@
     for = "/*"
         [headers.values]
         Content-Security-Policy = "frame-ancestors 'self'"
-
-[[plugins]]
-    package = "@netlify/plugin-inline-functions"
