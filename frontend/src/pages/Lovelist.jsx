@@ -35,10 +35,6 @@ export default function Lovelist() {
         .catch((error) => {
           console.error('SANITY Error updating document:', error)
         })
-    // await client.create({
-    //   _type: "lovelistForm",
-    //   verse: verse,
-    // })
   }
 
   // if (!lovelist) return <p>Loading...</p>;
