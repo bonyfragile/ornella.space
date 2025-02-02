@@ -6,6 +6,9 @@
   margin-bottom: 1rem;
 }
 
+.bio.content a {
+  color:inherit;
+}
 /* .bio.container {
     in index.css
     } */
