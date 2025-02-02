@@ -1,20 +1,14 @@
-.dates.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 2rem;
-    padding-top: 3rem;
-}
+/* .dates.container {
+    in index.css
+} */
 
-.dates-content {
-    width: 100%; 
-    align-items: center;
-    max-height: 100%;
-}
+/* .dates.content {
+  margin: 0 auto;
+  width: 70%;
+} */
 
-@media (max-width: 768px) {  
-    .dates-content {
+/* @media (max-width: 768px) {  
+    .dates.content {
         width: 100%;
         margin-bottom: 40px;
     }
@@ -22,7 +16,7 @@
 
 
 @media (min-width: 1024px) {
-  .dates-content {
+  .dates.content {
     width: 50%;
   } 
-}
+} */

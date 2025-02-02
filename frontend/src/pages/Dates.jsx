@@ -26,7 +26,7 @@ export default function Dates() {
       <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, CV, bio, biography, dates" />
     </Helmet>
     <div className={`dates container ${isReady ? 'mount' : 'unmount'}`}>
-      <div className="dates-content">
+      <div className="dates content">
         <BlockContent blocks={dates?.information} projectId="f588b6e1" dataset="production" />
       </div>
     </div>

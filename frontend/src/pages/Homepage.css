@@ -1,5 +1,3 @@
-
-
 .filters {
     display: flex;
     position: fixed;
@@ -43,10 +41,7 @@
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 4rem;
     max-width: 100%;
-    margin-top: 5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 5rem;
+    margin-top: 5rem 1rem !important;
     padding: 2rem;
 }
 
@@ -158,7 +153,6 @@
 @media (max-width: 768px) {
 
     .grid {
-        /* width: calc(100% - 30px); */
         grid-template-columns: repeat(2, 1fr);
         width: calc(100% - 2rem);
         margin-left: 0;

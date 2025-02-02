@@ -29,7 +29,7 @@ export default function Bio() {
       <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, bio, biography, CV" />
     </Helmet>
     <div className={`bio container ${isReady ? 'mount' : 'unmount'}`}>
-      <div className="bio-content">
+      <div className="bio content">
         {imageUrl && (<img src={imageUrl} alt="Ornella Portrait" className="bio-photo" />)}
         <BlockContent blocks={bio?.description} projectId="f588b6e1" dataset="production" />     
       </div>

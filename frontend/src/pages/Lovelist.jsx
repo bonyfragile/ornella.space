@@ -47,7 +47,7 @@ export default function Lovelist() {
         <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, lovelist" />
       </Helmet>
       <div className={`lovelist container ${isReady ? 'mount' : 'unmount'}`}>
-        <div className="lovelist-content">
+        <div className="lovelist content">
           {lovelist && lovelist.map((verse, i) => <p key={i}>{verse}</p>)}
         </div>
         <LovelistForm addVerse={addVerse} banned={banned}/>

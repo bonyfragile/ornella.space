@@ -1,33 +1,21 @@
-.lovelist.container {
-    display: block;
-    text-align: center;
-    /* margin: 30px; */
-    height: auto;
-    /*incoming styles*/
-    margin: 2rem;
-    padding-top: 3rem;
-    /*incoming end*/
-}
+/* .lovelist.container {
+    in index.css
+} */
 
-.lovelist-content {
-    width: 70%; 
+/* .lovelist.content {
     margin: 0 auto;
-    height: auto;
-    /*incoming styles*/
-    /* not sure, what maxheight is for*/
-    /* max-height: 100%; */
-    /*incoming end*/
-}
+    width: 70%;
+} */
 
-@media (max-width: 768px) {  
-    .lovelist-content {
+/* @media (max-width: 768px) {  
+    .lovelist.content {
         width: 90%;
         margin-bottom: 40px;
     }
-  }
+}
 
-  @media (min-width: 1024px) {
-    .lovelist-content {
-      width: 50%;
-    } 
-  }
+@media (min-width: 1024px) {
+  .lovelist.content {
+    width: 50%;
+  } 
+} */
