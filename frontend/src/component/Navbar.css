@@ -1,23 +1,28 @@
 .navbar {
-  width: 30px;
   position: fixed;
-  top: 15px;
-  bottom: 0;
-  right: 0;
-  writing-mode: vertical-rl;
-  text-align: center;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 3rem;
+  text-align: center;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
 }
 
 .nav-links {
   list-style-type: none;
-  display: flex;
-  gap: 40px;
+  gap: 1rem;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-links li {
-  margin: 0 10px;
+  display: inline-block;
+  padding: 0 1rem;
   font-weight: 400;
   font-style: normal;
   font-size: 0.85em;
@@ -34,3 +39,8 @@
   font-weight: 600;
 }
 
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+  }
+}

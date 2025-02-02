@@ -1,14 +1,22 @@
 .lovelist.container {
     display: block;
     text-align: center;
-    margin: 30px;
+    /* margin: 30px; */
     height: auto;
+    /*incoming styles*/
+    margin: 2rem;
+    padding-top: 3rem;
+    /*incoming end*/
 }
 
 .lovelist-content {
-    width: 50%; 
-    height: auto;
+    width: 70%; 
     margin: 0 auto;
+    height: auto;
+    /*incoming styles*/
+    /* not sure, what maxheight is for*/
+    /* max-height: 100%; */
+    /*incoming end*/
 }
 
 @media (max-width: 768px) {  
@@ -20,6 +28,6 @@
 
   @media (min-width: 1024px) {
     .lovelist-content {
-      width: 40%;
+      width: 50%;
     } 
   }

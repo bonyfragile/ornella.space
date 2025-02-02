@@ -4,11 +4,14 @@
   line-height: 1.5;
   margin: 0;
   padding: 0;
+  /*word-spacing: 0.1em;*/
+  letter-spacing: 0.03em;
 }
 
 body {
     background-color: #FFFCFA;
     color: #F21C0A;
+    height: 100dvh;
   }
 
   .title {
