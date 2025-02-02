@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import BlockContent from '@sanity/block-content-to-react'
 import ReactDom from 'react-dom'
-import './Modal.css'
+import './Modal2.css'
 import XIcon from './XIcon'
 import ChevronLeft from './ChevronLeft'
 import ChevronRight from './ChevronRight'
