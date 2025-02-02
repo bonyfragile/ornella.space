@@ -47,7 +47,7 @@ export default function LovelistForm({addVerse, banned}) {
                 title="Chose your words kindly."
                 onChange={handleChange} 
                 onInvalid={handleInvalid}
-                // placeholder='type something'
+                placeholder='What do you love?'
             />
         </label>
         <button className="filter-button" type="submit">Submit</button>

@@ -5,7 +5,7 @@
 
 .lovelistform label {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
 }
 
 .lovelistform button,
@@ -17,6 +17,7 @@
     font-size: 0.8em;
     margin: 0 10px;
     padding: 0 10px;
+    text-align: center;
 }
 
 .error {
