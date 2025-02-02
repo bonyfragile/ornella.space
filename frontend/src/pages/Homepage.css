@@ -84,9 +84,9 @@
 
 /*incoming from styles*/
 /*we had moved this to only hover devices not sure why it's back here, leaving it in case it was intentional*/
-.grid-item:hover .grid-item-text {
+/*.grid-item:hover .grid-item-text {
     opacity: 0;
-}
+}*/
 /*incoming end*/
 
 .grid-item-image {
@@ -151,6 +151,10 @@
 }
 
 @media (max-width: 768px) {
+
+    .container {
+        margin: 5rem 0;
+    }
 
     .grid {
         grid-template-columns: repeat(2, 1fr);
