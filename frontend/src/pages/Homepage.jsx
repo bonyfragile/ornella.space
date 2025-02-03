@@ -27,7 +27,6 @@ export default function Homepage() {
   }
 
   useEffect (() => {
-    let projects = null
     client.fetch(
       '*[_type in ["film", "book", "postpunkpoetry"]]|order(_createdAt desc){_id, _type, title, slug, shortsubtitle, extendedsubtitle, coverImage{asset->{url}}, images[]{asset->{url}}, description, visibleLinkName, externalLink}'
     )  
@@ -60,7 +59,6 @@ export default function Homepage() {
   }
   
   const onClose = () => {
-    // window.history.back()
     setIsVisible(false)
     navigate(`/`)
     // document.body.style.overflowY = 'scroll'
@@ -68,7 +66,7 @@ export default function Homepage() {
       setIsRendering(false)
     }, 250) // duration should match the animation duration in css
   } 
-  const imageUrl = projects.coverImage ? urlFor(projects.coverImage).url() : null;
+  const imageUrl = projects.coverImage ? urlFor(projects.coverImage).url() : null
 
   return (
     <>

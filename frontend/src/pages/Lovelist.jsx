@@ -25,16 +25,17 @@ export default function Lovelist() {
     const newVerse = formData.get('verse')
     setLovelist([...lovelist, newVerse])
     
-    const documentId = '62c8f92c-187a-441c-ba31-53ffaffff9df'
-    client
-      .patch(documentId)
-      .append('verses', [newVerse])
-      .commit()
-      .then((updatedDocument) => {
-        console.log('SANITY Updated document:', updatedDocument)
+    fetch('/.netlify/functions/addVerse', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ verse: newVerse }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('SANITY Updated document:', data);
       })
       .catch((error) => {
-        console.error('SANITY Error updating document:', error)
+        console.error('SANITY Error updating document:', error);
       })
   }
 
