@@ -13,7 +13,8 @@ export default function Homepage() {
   const [isRendering, setIsRendering] = useState(false)
   const [visibleProj, setVisibleProj] = useState(null)
   const [isReady, setIsReady] = useState(false)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const params = useParams()
 
   const filterNames = {
     film: 'films',
@@ -21,15 +22,26 @@ export default function Homepage() {
     postpunkpoetry: 'post punk poetry',
   }
 
+  const filterProjectsBySlug = (arr, slug) => {
+    return arr.find(obj => obj.slug?.current === slug)
+  }
+
   useEffect (() => {
+    let projects = null
     client.fetch(
       '*[_type in ["film", "book", "postpunkpoetry"]]|order(_createdAt desc){_id, _type, title, slug, shortsubtitle, extendedsubtitle, coverImage{asset->{url}}, images[]{asset->{url}}, description, visibleLinkName, externalLink}'
     )  
-    .then(setProjects)
+    .then((data) => {
+      setProjects(data)
+      if (params.slug && params.slug !== "/") {
+        const project = filterProjectsBySlug(data, params.slug)
+        if (project) handleProjectClick(project)
+      }
+    })
     .catch(console.error)
     
     requestAnimationFrame(() => setIsReady(true))
-}, [])
+  }, [])
 
   const toggleFilter = (category) => {
     setSelectedFilters((prev) => 
