@@ -57,7 +57,11 @@ export default function Modal({ project, onClose, isVisible }) {
                     <h4 className="subtitle">{project.extendedsubtitle}</h4>
                     {project.externalLink && project.visibleLinkName && (
                         <a href={project.externalLink} target="_blank" rel="noopener noreferrer">{project.visibleLinkName}</a>)}
-                    <div className="description"><BlockContent blocks={project.description} projectId="f588b6e1" dataset="production" /></div>
+                    {project.description && (
+                        <div className="description">
+                            <BlockContent blocks={project.description} projectId="f588b6e1" dataset="production" />
+                        </div>
+                    )}
                     {/* <button className="close-button" onClick={onClose}>Back</button> */}
                 </div>
             </div>
