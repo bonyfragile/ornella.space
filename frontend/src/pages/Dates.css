@@ -1,3 +1,7 @@
+.dates.content a {
+  color: inherit;
+}
+
 /* .dates.container {
     in index.css
 } */
