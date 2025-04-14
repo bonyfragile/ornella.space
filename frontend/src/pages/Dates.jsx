@@ -22,8 +22,8 @@ export default function Dates() {
     <>
     <Helmet>
       <title>ORNELLA DATES</title>
-      <meta name="description" content="Ornella Pacchioni CV and important dates" />
-      <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, CV, bio, biography, dates" />
+      <meta name="description" content="Ornella Pacchioni CV and important dates of her artistic practice." />
+      <meta name="keywords" content="Ornella, Pacchioni, website, French, author, screenwriter, director, CV, bio, biography, dates" />
     </Helmet>
     <div className={`dates container ${isReady ? 'mount' : 'unmount'}`}>
       <div className="dates content">

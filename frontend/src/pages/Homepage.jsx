@@ -72,8 +72,8 @@ export default function Homepage() {
     <>
     <Helmet>
       <title>ORNELLA</title>
-      <meta name="description" content="Ornella Pacchioni books, films and poetry projects" />
-      <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, poetry, films, books, projects" />
+      <meta name="description" content="Ornella Pacchioni website. A list of books, films and poetry projects" />
+      <meta name="keywords" content="Ornella, Pacchioni, website, French, author, screenwriter, director, poetry, films, books, projects" />
     </Helmet>
     <div className={`home container ${isReady ? 'mount' : 'unmount'}`}>
       {/* Filter Toggle */}

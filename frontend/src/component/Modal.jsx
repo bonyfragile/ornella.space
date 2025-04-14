@@ -5,6 +5,7 @@ import './Modal2.css'
 import XIcon from './XIcon'
 import ChevronLeft from './ChevronLeft'
 import ChevronRight from './ChevronRight'
+import { Helmet } from 'react-helmet-async'
 
 export default function Modal({ project, onClose, isVisible }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -31,6 +32,12 @@ export default function Modal({ project, onClose, isVisible }) {
     }
 
     return project && ReactDom.createPortal(    
+        <>
+        <Helmet>
+              <title>ORNELLA - {project.title}</title>
+              <meta name="description" content="Ornella Pacchioni project detailed description and images." />
+              <meta name="keywords" content="Ornella, Pacchioni, website, French, author, screenwriter, director, poetry, films, books, projects" />
+            </Helmet>
         <div 
             className={`modal-overlay ${isVisible ? 'visible': 'hidden'}`} 
             onClick={handleOnClick} 
@@ -71,7 +78,8 @@ export default function Modal({ project, onClose, isVisible }) {
                     <img src={project.images[currentImageIndex].asset.url} alt={project.title} className="fullscreen-image" />
                 </div>    
             )}  
-        </div>,
+        </div>
+        </>,
         document.getElementById('portal')
     )
 }

@@ -25,8 +25,8 @@ export default function Bio() {
     <>
     <Helmet>
       <title>ORNELLA BIO</title>
-      <meta name="description" content="Ornella Pacchioni Biography" />
-      <meta name="keywords" content="Ornella, Pacchioni, French, author, screenwriter, director, bio, biography, CV" />
+      <meta name="description" content="Ornella Pacchioni biography, a short description of her practice." />
+      <meta name="keywords" content="Ornella, Pacchioni, website, French, author, screenwriter, director, bio, biography, CV" />      
     </Helmet>
     <div className={`bio container ${isReady ? 'mount' : 'unmount'}`}>
       <div className="bio content">
