@@ -72,7 +72,7 @@ export default function Homepage() {
     <>
     <Helmet>
       <title>ORNELLA</title>
-      <meta name="description" content="Ornella Pacchioni website. A list of books, films and poetry projects" />
+      <meta name="description" content="Ornella Pacchioni is a French author, screenwriter and director. Her work involves translating the poetry of the contemporary world into stories, with a particular focus on themes exploring the in-between and fragmented identity." />
       <meta name="keywords" content="Ornella, Pacchioni, website, French, author, screenwriter, director, poetry, films, books, projects" />
     </Helmet>
     <div className={`home container ${isReady ? 'mount' : 'unmount'}`}>

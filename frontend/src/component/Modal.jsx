@@ -34,10 +34,10 @@ export default function Modal({ project, onClose, isVisible }) {
     return project && ReactDom.createPortal(    
         <>
         <Helmet>
-              <title>ORNELLA - {project.title}</title>
-              <meta name="description" content="Ornella Pacchioni project detailed description and images." />
-              <meta name="keywords" content="Ornella, Pacchioni, website, French, author, screenwriter, director, poetry, films, books, projects" />
-            </Helmet>
+              <title>ORNELLA - {project.title}</title>'
+              <meta name="description" content={`Ornella Pacchioni, ${project.title}, ${project.extendedsubtitle}`}/>
+              <meta name="keywords" content={`Ornella, Pacchioni, ${project.title}, website, French, author, screenwriter, director, poetry, films, movies, books, projects`} />              
+        </Helmet>
         <div 
             className={`modal-overlay ${isVisible ? 'visible': 'hidden'}`} 
             onClick={handleOnClick} 
